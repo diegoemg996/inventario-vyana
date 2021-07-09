@@ -1,0 +1,43 @@
+.navbar-custom{
+    height: 100vh;
+    width: 15%;
+    min-width: 200px;
+    background: #053e4c;
+}
+
+.navbar-custom ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom ul li{
+    cursor: pointer;
+}
+
+.navbar-custom ul li:hover{
+    background: red;
+}
+
+.selected{
+    background: red;
+}
+
+.navbar-custom ul a{
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+.navlink{
+    display: flex;
+    justify-content:space-between;
+    padding: 1rem;
+}
+
+.navlink p{
+    margin: 0;
+}
