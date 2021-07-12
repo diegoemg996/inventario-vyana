@@ -6,9 +6,17 @@ import { useForm } from '../../../hooks/useForm';
 import {filtroBodega} from '../../../helpers/filtroBodega';
 import {filtroNombre} from '../../../helpers/filtroNombre'
 
+
 export const Tabla = () => {
     
-    const {productos} = useContext(productosContext);
+    const {obtenerProductos, productos} = useContext(productosContext);
+
+    const [showSearch, setShowSearch] = useState(false);
+    const [showAdd, setShowAdd] = useState(false);
+    
+    useEffect(() => {
+        obtenerProductos()
+    }, [])
 
     const [values, handleInputChange] = useForm({
         nombre: "",
@@ -22,36 +30,48 @@ export const Tabla = () => {
     useEffect(() => {
         let tempBusqueda = filtroBodega(bodega, productos);
         setFiltroProductos(filtroNombre(nombre, tempBusqueda ))
+        console.log(filtroProductos)
         
     }, [nombre, productos, bodega]);
 
     return (
         <div className="container">
+
             <Busqueda
                 values={values}
                 handleInputChange={handleInputChange}
+                showSearch = {showSearch}
+                setShowSearch = {setShowSearch}
+                showAdd = {showAdd}
+                setShowAdd = {setShowAdd}
             />
 
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Bodega</th>
-                        <th scope="col">Cantidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        filtroProductos.map(producto =>(
-                            <ItemTabla
-                                key={producto._id}
-                                producto={producto}
-                            />    
-                        ))
-                    }
+            <div className={ (showSearch === false && showAdd === false) ? "tabla" : 'tabla-chica'}>
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Bodega</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Movimientos</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            filtroProductos.map(producto =>(
+                                <ItemTabla
+                                    key={producto._id}
+                                    producto={producto}
+                                />    
+                            ))
+                        }
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     )
 }

@@ -1,7 +1,7 @@
 .agregar-boton{
     border: transparent;
     border-radius: 50%;
-    background: #8080ff;
+    background: #0D6EFD;
     height: 60px;
     width: 60px;
     color: white;
@@ -9,8 +9,53 @@
     cursor: pointer;
     transition: background-color 0.5s ease;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+    margin-right: 0.5rem;
   }
 
   .agregar-boton:hover{
-      background: #5959ff;
+      background: #6610f2;
   }
+
+  .tabla-botones{
+      display: flex;
+  }
+
+  .form-label{
+      margin: 0;
+      font-weight: bold;
+  }
+
+  .boton-add{
+    margin-top:24px;
+  }
+
+  .input-add{
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      border: 1px solid #0D6EFD;
+  }
+
+  .table-col{
+      display: flex;
+  }
+
+  .input-table{
+      width: 100px !important;
+      margin-right: 5px;
+  }
+
+  .tabla{
+      height: 80vh;
+      overflow-y: scroll;
+  }
+
+  .tabla-chica{
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+
+
+
+

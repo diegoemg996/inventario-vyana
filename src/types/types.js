@@ -1,3 +1,4 @@
 export const types = {
-    obtenerProductos: '[Productos] Obtener'
+    obtenerProductos: '[Productos] Obtener',
+    erroresAgregar: '[Productos] Errrores agregar',
 }
