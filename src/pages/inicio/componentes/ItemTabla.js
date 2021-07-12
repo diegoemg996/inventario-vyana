@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const ItemTabla = ({producto}) => {
-    console.log(producto)
     return (
         <tr>
             <td>{producto.nombre}</td>
