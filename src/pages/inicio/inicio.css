@@ -50,6 +50,11 @@
       overflow-y: scroll;
   }
 
+  .tabla-mediana{
+    height: 70vh;
+    overflow-y: scroll;
+}
+
   .tabla-chica{
     height: 55vh;
     overflow-y: scroll;

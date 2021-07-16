@@ -46,7 +46,7 @@ export const Tabla = () => {
                 setShowAdd = {setShowAdd}
             />
 
-            <div className={ (showSearch === false && showAdd === false) ? "tabla" : 'tabla-chica'}>
+            <div className={ (showSearch === false && showAdd === false) ? "tabla" : (showSearch === true && showAdd === true ? 'tabla-chica': 'tabla-mediana')}>
                 <table className="table table-striped">
                     <thead>
                         <tr>

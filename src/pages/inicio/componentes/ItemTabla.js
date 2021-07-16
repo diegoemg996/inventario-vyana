@@ -34,6 +34,23 @@ export const ItemTabla = ({producto}) => {
         reset();
     }
 
+    const handleDelete = ()=>{
+        Swal.fire({
+            title: `¿Seguro qué quieres eliminar ${producto.nombre}`,
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: `Eliminar`,
+            denyButtonText: `No Eliminar`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire('Eliminado Correctamente', '', 'success')
+              borrarProducto(producto._id)
+            } else if (result.isDenied) {
+              Swal.fire('No se ha eliminado', '', 'error')
+            }
+          })
+    }
+
     return (
         <tr>
             <td>{producto.nombre}</td>
@@ -42,6 +59,7 @@ export const ItemTabla = ({producto}) => {
             <td>
                 <div className="table-col">
                     <input
+                        type="number"
                         name="movimiento"
                         onChange={handleInputChange}
                         value={movimiento}
@@ -59,7 +77,11 @@ export const ItemTabla = ({producto}) => {
                 <button className="btn btn-success"><i className="fas fa-edit"></i></button>
             </td>
             <td>
-                <button className="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                <button
+                    onClick={handleDelete}
+                    className="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </td>
         </tr>
     )

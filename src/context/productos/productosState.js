@@ -7,10 +7,11 @@ import apiDB from '../../api/apiDB';
 
 const ProductosState = props => {
     const initialState = {
-        productos: []
+        productos: [],
+        movimientosLogs:[]
     }
 
-    const tokenUsuario = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDhhMDllZjk4NjkwMTAwMTU4YjgwM2YiLCJpYXQiOjE2MjYxMTE1NzYsImV4cCI6MTYyNjEyNTk3Nn0.hXGL74WHHTta6ThUSagzjdb_s5MJXy09AG0kO2LKk5k';
+    const tokenUsuario = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDhhMDllZjk4NjkwMTAwMTU4YjgwM2YiLCJpYXQiOjE2MjYxODg3MDUsImV4cCI6MTY1NzcyNDcwNX0.UqhVaAVkVEtK0A2bI3bzMIyJ2jnrVVYwCFMW0by46hg';
 
     // Crear dispatch y state
     const [state, dispatch] = useReducer(ProductosReducer, initialState);
@@ -34,7 +35,7 @@ const ProductosState = props => {
     const agregarProducto = async(valores)=>{
 
         try {
-            const productos = await apiDB.post(`/productos`,valores, {
+            await apiDB.post(`/productos`,valores, {
                 headers:{
                     'Authorization' : tokenUsuario
                 }
@@ -55,7 +56,7 @@ const ProductosState = props => {
         const numeroCantidad = parseFloat(cantidad);
 
         try {
-            const productos = await apiDB.post(`/movimientos/agregar/${id}`,{cantidad:numeroCantidad}, {
+            await apiDB.post(`/movimientos/agregar/${id}`,{cantidad:numeroCantidad}, {
                 headers:{
                     'Authorization' : tokenUsuario
                 }
@@ -66,7 +67,7 @@ const ProductosState = props => {
         }
     }
 
-    const borrarProducto = async(id, tokenUsuario)=>{
+    const borrarProducto = async(id)=>{
         try {
             const productoBorrado = await apiDB.delete(`/productos/${id}`,{
                 headers:{
@@ -79,15 +80,29 @@ const ProductosState = props => {
         }
     }
 
+    const obtenerMovimientos = async()=>{
+        try {
+            const movimientos = await apiDB.get('/movimientos');
+            dispatch({
+                type: types.obtenerMovimientos,
+                payload: movimientos.data.movimientos
+            })             
+        } catch (error) {
+            console.log(error.response)
+        }
+    }
+
 
     return (
         <ProductosContext.Provider
             value={{
                 productos: state.productos,
+                movimientos: state.movimientosLogs,
                 obtenerProductos,
                 agregarProducto,
                 movimientoProductos,
-                borrarProducto
+                borrarProducto,
+                obtenerMovimientos
             }}
         >
             {props.children}
