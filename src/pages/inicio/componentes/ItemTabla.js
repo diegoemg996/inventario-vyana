@@ -80,7 +80,7 @@ export const ItemTabla = ({producto}) => {
                 <button
                     onClick={handleDelete}
                     className="btn btn-danger">
-                    <i class="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt"></i>
                 </button>
             </td>
         </tr>

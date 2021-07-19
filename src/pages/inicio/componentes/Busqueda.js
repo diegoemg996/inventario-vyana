@@ -1,6 +1,7 @@
 import React from 'react'
 import { AgregarForm } from './AgregarForm';
 import { AgregaProducto} from './AgregarProducto';
+import { CrearPDF } from './CrearPDF';
 
 export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, showAdd, setShowAdd  }) => {
 
@@ -16,7 +17,9 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                 <button 
                     onClick={()=>{setShowSearch(!showSearch)}}
                     className="agregar-boton mt-3 mb-3"
-                ><i class="fas fa-search"></i></button>
+                ><i className="fas fa-search"></i></button>
+
+                <CrearPDF/>
             </div>
 
             {
@@ -32,7 +35,7 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                             <label for="nombre" class="form-label">Busqueda</label>
                             <input 
                                 type="text" 
-                                class="form-control" 
+                                className="form-control" 
                                 placeholder="Escriba nombre producto"
                                 value={nombre}
                                 onChange={handleInputChange}
@@ -41,8 +44,8 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                             />
                         </div>
                         <div className="mb-3 col-3">
-                            <label class="form-label">Bodega</label>
-                            <select class="form-select" aria-label="Default select example" name="bodega" value={bodega} onChange={handleInputChange}>
+                            <label className="form-label">Bodega</label>
+                            <select className="form-select" aria-label="Default select example" name="bodega" value={bodega} onChange={handleInputChange}>
                                 <option value="" selected>Seleccione una bodega</option>
                                 <option value="rio alamo">Rio Alamo</option>
                                 <option value="vitaminas">Vitaminas</option>

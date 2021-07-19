@@ -26,7 +26,7 @@ export const AgregarForm = () => {
                     <label for="nombre" class="form-label">Nombre</label>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value={nombre}
                         onChange={handleInputChange}
                         name="nombre"
@@ -37,7 +37,7 @@ export const AgregarForm = () => {
                     <label for="nombre" class="form-label">Bodega</label>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value={bodega}
                         onChange={handleInputChange}
                         name="bodega"
@@ -47,7 +47,7 @@ export const AgregarForm = () => {
                     <label for="nombre" class="form-label">Cantidad</label>
                     <input 
                         type="number" 
-                        class="form-control" 
+                        className="form-control" 
                         value={cantidad}
                         onChange={handleInputChange}
                         name="cantidad"

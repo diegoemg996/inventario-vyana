@@ -6,4 +6,5 @@
 .page-container{
     flex: 1 1 auto;
     background: #e7e7e7;
+    height: 100vh;
 }

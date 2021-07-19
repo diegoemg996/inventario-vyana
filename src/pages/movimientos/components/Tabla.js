@@ -3,7 +3,7 @@ import React from 'react'
 export const Tabla = () => {
     return (
         <div className="container mt-3">
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
@@ -25,11 +25,7 @@ export const Tabla = () => {
                     <td>Thornton</td>
                     <td>@fat</td>
                     </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
