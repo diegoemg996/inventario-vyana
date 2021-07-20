@@ -7,8 +7,8 @@ export const AgregaProducto = ({showAdd, setShowAdd}) => {
             <div>
                 <button
                     onClick={()=>{setShowAdd(!showAdd)}}
-                    className="agregar-boton mt-3 mb-1">
-                    <i className="fas fa-plus"></i>
+                    className="btn btn-primary agregar-boton mt-3 mb-1">
+                    <i className="fas fa-plus fa-2x"></i>
                 </button>
             </div>
     

@@ -27,7 +27,8 @@ export const CrearPDF = () => {
         head: [['Producto', 'Bodega', 'Cantidad']],
         body: ordenadoPDF,
         })
-        doc.save('table.pdf')
+        const date = new Date();
+        doc.save(`Inventario-${date}.pdf`)
     
     } 
 
@@ -35,8 +36,8 @@ export const CrearPDF = () => {
         <div>
                 <button
                     onClick={PDFCreator}
-                    className="agregar-boton mt-3 mb-1">
-                    <i className="fas fa-print"></i>
+                    className="btn btn-primary agregar-boton mt-3 mb-1">
+                    <i className="fas fa-print fa-2x"></i>
                 </button>
             </div>
     )

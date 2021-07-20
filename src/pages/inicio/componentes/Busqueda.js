@@ -16,8 +16,8 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                 />
                 <button 
                     onClick={()=>{setShowSearch(!showSearch)}}
-                    className="agregar-boton mt-3 mb-3"
-                ><i className="fas fa-search"></i></button>
+                    className="btn btn-primary agregar-boton mt-3 mb-3"
+                ><i className="fas fa-search fa-2x"></i></button>
 
                 <CrearPDF/>
             </div>
@@ -34,7 +34,8 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                         <div className="mb-3 col-3">
                             <label for="nombre" class="form-label">Busqueda</label>
                             <input 
-                                type="text" 
+                                type="text"
+                                autoComplete="off"
                                 className="form-control" 
                                 placeholder="Escriba nombre producto"
                                 value={nombre}

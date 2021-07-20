@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2'
 import productosContext from '../../../context/productos/productosContext';
 import { agregarComas } from '../../../helpers/agregarComas'
 import { useForm } from '../../../hooks/useForm';
@@ -12,7 +13,9 @@ export const ItemTabla = ({producto}) => {
 
     const {movimiento} = values;
 
-    const{movimientoProductos, borrarProducto} = useContext(productosContext);
+    const{movimientoProductos, borrarProducto, obtenerProductoActivo} = useContext(productosContext);
+
+    const history = useHistory();
 
     const handleSuma = ()=>{
         movimientoProductos(producto._id, movimiento);
@@ -51,6 +54,11 @@ export const ItemTabla = ({producto}) => {
           })
     }
 
+    const handleRouteEdit = ()=>{
+        history.push('/edicion');
+        obtenerProductoActivo(producto)
+    }
+
     return (
         <tr>
             <td>{producto.nombre}</td>
@@ -74,7 +82,11 @@ export const ItemTabla = ({producto}) => {
                 </div>
             </td>
             <td>
-                <button className="btn btn-success"><i className="fas fa-edit"></i></button>
+                <button
+                    onClick={handleRouteEdit} 
+                    className="btn btn-success">
+                        <i className="fas fa-edit"></i>
+                </button>
             </td>
             <td>
                 <button

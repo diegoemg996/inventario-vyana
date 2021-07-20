@@ -6,7 +6,7 @@ export const AgregarForm = () => {
 
     const {agregarProducto} = useContext(productosContext);
 
-    const [values, handleInputChange] = useForm({
+    const [values, handleInputChange, reset] = useForm({
         nombre: "",
         bodega: "",
         cantidad: ""
@@ -17,6 +17,7 @@ export const AgregarForm = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         agregarProducto(values);
+        reset();
     }
 
     return (
@@ -28,6 +29,7 @@ export const AgregarForm = () => {
                         type="text" 
                         className="form-control" 
                         value={nombre}
+                        autoComplete="off"
                         onChange={handleInputChange}
                         name="nombre"
 
@@ -37,7 +39,8 @@ export const AgregarForm = () => {
                     <label for="nombre" class="form-label">Bodega</label>
                     <input 
                         type="text" 
-                        className="form-control" 
+                        className="form-control"
+                        autoComplete="off" 
                         value={bodega}
                         onChange={handleInputChange}
                         name="bodega"
@@ -49,6 +52,7 @@ export const AgregarForm = () => {
                         type="number" 
                         className="form-control" 
                         value={cantidad}
+                        autoComplete="off"
                         onChange={handleInputChange}
                         name="cantidad"
                     />

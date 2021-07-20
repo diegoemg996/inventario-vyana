@@ -8,7 +8,8 @@ import apiDB from '../../api/apiDB';
 const ProductosState = props => {
     const initialState = {
         productos: [],
-        movimientosLogs:[]
+        movimientosLogs:[],
+        productoActivo: {}
     }
 
     const tokenUsuario = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDhhMDllZjk4NjkwMTAwMTU4YjgwM2YiLCJpYXQiOjE2MjYxODg3MDUsImV4cCI6MTY1NzcyNDcwNX0.UqhVaAVkVEtK0A2bI3bzMIyJ2jnrVVYwCFMW0by46hg';
@@ -47,6 +48,21 @@ const ProductosState = props => {
                 type: types.erroresAgregar,
                 payload: error.response.data.errors
             }) 
+        }
+
+    }
+
+    const editarProducto = async(valores, id)=>{
+
+        try {
+            await apiDB.put(`/productos/${id}`,valores, {
+                headers:{
+                    'Authorization' : tokenUsuario
+                }
+            })
+            obtenerProductos()
+        } catch (error) {
+            console.log(error.response);
         }
 
     }
@@ -92,17 +108,28 @@ const ProductosState = props => {
         }
     }
 
+    const obtenerProductoActivo = (id)=>{
+        dispatch({
+            type: types.obtenerProductoActivo,
+            payload: id
+        })
+    }
+
 
     return (
         <ProductosContext.Provider
             value={{
                 productos: state.productos,
                 movimientos: state.movimientosLogs,
+                productoActivo: state.productoActivo,
                 obtenerProductos,
                 agregarProducto,
                 movimientoProductos,
                 borrarProducto,
-                obtenerMovimientos
+                obtenerMovimientos,
+                obtenerProductoActivo,
+                editarProducto  
+
             }}
         >
             {props.children}

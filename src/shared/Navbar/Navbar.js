@@ -27,11 +27,6 @@ export const Navbar = () => {
                 <span><i className="fas fa-exchange-alt"></i></span>
               </NavLink>
             </li>
-            <li onClick={()=> handleRouting('edicion')}>
-              <NavLink exact className="navlink" to="/edicion" activeClassName="selected">
-                <p>Edicion</p> 
-                <span><i className="fas fa-edit"></i></span></NavLink>
-            </li>
           </ul>
         </nav>
     )
