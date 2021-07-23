@@ -36,8 +36,8 @@ export const CrearPDF = () => {
         <div>
                 <button
                     onClick={PDFCreator}
-                    className="btn btn-primary agregar-boton mt-3 mb-1">
-                    <i className="fas fa-print fa-2x"></i>
+                    className="agregar-boton mt-3 mb-1">
+                    <i className="fas fa-print"></i>
                 </button>
             </div>
     )

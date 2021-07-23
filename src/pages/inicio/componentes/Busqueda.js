@@ -16,8 +16,8 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                 />
                 <button 
                     onClick={()=>{setShowSearch(!showSearch)}}
-                    className="btn btn-primary agregar-boton mt-3 mb-3"
-                ><i className="fas fa-search fa-2x"></i></button>
+                    className="agregar-boton mt-3 mb-3"
+                ><i className="fas fa-search "></i></button>
 
                 <CrearPDF/>
             </div>
