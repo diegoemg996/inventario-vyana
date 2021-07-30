@@ -29,8 +29,7 @@ export const Tabla = () => {
 
     useEffect(() => {
         let tempBusqueda = filtroBodega(bodega, productos);
-        setFiltroProductos(filtroNombre(nombre, tempBusqueda ))
-        console.log(filtroProductos)
+        setFiltroProductos(filtroNombre(nombre, tempBusqueda ));
         
     }, [nombre, productos, bodega]);
 

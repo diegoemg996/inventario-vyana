@@ -8,7 +8,7 @@ import apiDB from '../../api/apiDB';
 const ProductosState = props => {
     const initialState = {
         productos: [],
-        movimientosLogs:[],
+        movimientos:[],
         productoActivo: {}
     }
 
@@ -108,10 +108,11 @@ const ProductosState = props => {
         }
     }
 
-    const obtenerProductoActivo = (id)=>{
+    const obtenerProductoActivo = (producto)=>{
+        console.log('activo', producto)
         dispatch({
             type: types.obtenerProductoActivo,
-            payload: id
+            payload: producto
         })
     }
 
@@ -120,7 +121,7 @@ const ProductosState = props => {
         <ProductosContext.Provider
             value={{
                 productos: state.productos,
-                movimientos: state.movimientosLogs,
+                movimientos: state.movimientos,
                 productoActivo: state.productoActivo,
                 obtenerProductos,
                 agregarProducto,

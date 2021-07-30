@@ -3,14 +3,19 @@ import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 import productosContext from '../../../context/productos/productosContext';
 import {agregarComas} from '../../../helpers/agregarComas';
+import moment from 'moment';
+import 'moment/locale/es';
 
 
 export const CrearPDF = () => {
+
+    moment.locale('es');
 
     const{productos} = useContext(productosContext);
     const [pdfProductos, setPdfProductos] = useState(productos);
 
     const PDFCreator = ()=>{
+        const date = new Date();
         const ordenadoPDF = productos.map(item =>{
             let nuevoOrden = [item.nombre, item.bodega, agregarComas(item.cantidad) ]
             return nuevoOrden;		
@@ -21,14 +26,14 @@ export const CrearPDF = () => {
         const doc = new jsPDF({
             orientation: "landscape"
           })
-    
+        doc.text(`Fecha: ${moment(date).format('D MMM YY')}`, 15, 20)
         doc.autoTable({ html: '#my-table' })
         doc.autoTable({
         head: [['Producto', 'Bodega', 'Cantidad']],
         body: ordenadoPDF,
         })
-        const date = new Date();
-        doc.save(`Inventario-${date}.pdf`)
+        
+        doc.save(`Inventario-${moment(date).format('D MMM YY')}.pdf`)
     
     } 
 

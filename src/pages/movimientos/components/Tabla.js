@@ -1,31 +1,25 @@
 import React from 'react'
+import { Movimiento } from './Movimiento'
 
-export const Tabla = () => {
+export const Tabla = ({movimientos}) => {
     return (
         <div className="container mt-3">
             <table className="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">
+                        <h2>Movimientos</h2>
+                    </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-
+                    {
+                        movimientos.map(movimiento => (
+                            <Movimiento
+                                movimiento={movimiento}
+                            />
+                        ))
+                    }
                 </tbody>
             </table>
         </div>

@@ -10,7 +10,7 @@ export const ProductosReducer = (state, action) => {
         case types.obtenerMovimientos:
             return{
                 ...state,
-                movimientosProducto: action.payload
+                movimientos: action.payload
             }
         case types.erroresAgregar:
             return{

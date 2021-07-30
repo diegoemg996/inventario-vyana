@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import productosContext from '../../../context/productos/productosContext';
 import { useForm } from '../../../hooks/useForm';
 
@@ -35,16 +35,13 @@ export const AgregarForm = () => {
 
                     />
                 </div>
-                <div className="mb-1 col-3">
-                    <label for="nombre" class="form-label">Bodega</label>
-                    <input 
-                        type="text" 
-                        className="form-control"
-                        autoComplete="off" 
-                        value={bodega}
-                        onChange={handleInputChange}
-                        name="bodega"
-                    />
+                <div className="mb-3 col-3">
+                    <label className="form-label">Bodega</label>
+                        <select className="form-select" aria-label="Default select example" name="bodega" value={bodega} onChange={handleInputChange}>
+                            <option value="" defaultValue>Seleccione una bodega</option>
+                            <option value="Rio Alamo">Rio Alamo</option>
+                            <option value="Vitaminas">Vitaminas</option>
+                        </select>
                 </div>
                 <div className="mb-1 col-3">
                     <label for="nombre" class="form-label">Cantidad</label>
@@ -58,7 +55,9 @@ export const AgregarForm = () => {
                     />
                 </div>
                 <div className="col-3">
-                    <button className="btn btn-primary boton-add">Agregar</button>
+                    <button 
+                        disabled={!nombre || !bodega || !cantidad} 
+                        className="btn btn-primary boton-add">Agregar</button>
                 </div>
 
             </div>

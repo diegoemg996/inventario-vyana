@@ -12,3 +12,11 @@
 .edit-form{
     margin: 2rem;
 }
+
+.registro-entrada{
+    color: #008000;
+  }
+
+  .registro-salida{
+    color: red;
+  }

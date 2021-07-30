@@ -1,6 +1,5 @@
 
 export const filtroNombre = ( nombre, productos ) => {
-    console.log(nombre)
     if(nombre === ""){
         return productos
     }
