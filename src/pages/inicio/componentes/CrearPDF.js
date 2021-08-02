@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 import productosContext from '../../../context/productos/productosContext';
@@ -12,7 +12,6 @@ export const CrearPDF = () => {
     moment.locale('es');
 
     const{productos} = useContext(productosContext);
-    const [pdfProductos, setPdfProductos] = useState(productos);
 
     const PDFCreator = ()=>{
         const date = new Date();
@@ -20,9 +19,7 @@ export const CrearPDF = () => {
             let nuevoOrden = [item.nombre, item.bodega, agregarComas(item.cantidad) ]
             return nuevoOrden;		
         })
-    
-        setPdfProductos(ordenadoPDF)
-        
+            
         const doc = new jsPDF({
             orientation: "landscape"
           })
