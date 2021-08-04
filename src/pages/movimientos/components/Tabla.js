@@ -17,6 +17,7 @@ export const Tabla = ({movimientos}) => {
                         movimientos.map(movimiento => (
                             <Movimiento
                                 movimiento={movimiento}
+                                key={movimiento._id}
                             />
                         ))
                     }

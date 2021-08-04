@@ -5,6 +5,13 @@
     background: #053e4c;
 }
 
+@media screen and (max-width: 667px) {
+    .navbar-custom {
+        width: 100%;
+        height: 30vh;
+    }
+}
+
 .navbar-custom ul {
     list-style: none;
     display: flex;

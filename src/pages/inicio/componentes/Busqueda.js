@@ -32,7 +32,7 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                     &&
                     <div className="row">
                         <div className="mb-3 col-3">
-                            <label for="nombre" class="form-label">Busqueda</label>
+                            <label htmlFor="nombre" className="form-label">Busqueda</label>
                             <input 
                                 type="text"
                                 autoComplete="off"
@@ -47,7 +47,7 @@ export const Busqueda = ({values, handleInputChange, showSearch, setShowSearch, 
                         <div className="mb-3 col-3">
                             <label className="form-label">Bodega</label>
                             <select className="form-select" aria-label="Default select example" name="bodega" value={bodega} onChange={handleInputChange}>
-                                <option value="" selected>Seleccione una bodega</option>
+                                <option value="" defaultValue>Seleccione una bodega</option>
                                 <option value="rio alamo">Rio Alamo</option>
                                 <option value="vitaminas">Vitaminas</option>
                             </select>
