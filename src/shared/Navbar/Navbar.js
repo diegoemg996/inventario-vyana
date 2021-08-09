@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {NavLink} from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import './navbar.css'
@@ -7,14 +7,24 @@ export const Navbar = () => {
 
   const history = useHistory();
 
+  const [visible, setVisible] = useState(false)
+
   const handleRouting = (ruta)=>{
     history.push(`/${ruta}`);
+  }
+
+  const handleNavbar = ()=>{
+    setVisible(!visible)
+    console.log(visible)
   }
 
   
     return (
         <nav className="navbar-custom">
-          <ul>
+          <button className="responsive-button" onClick={handleNavbar}>
+            <i className="fas fa-bars fa-2x"></i>
+          </button>
+          <ul className={visible ? 'navbar-visible' : 'lista'}>
             <li onClick={()=> handleRouting('')}>
               <NavLink exact className="navlink" to="/" activeClassName="selected">
                 <p>Home</p> 

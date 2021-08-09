@@ -8,18 +8,34 @@
 @media screen and (max-width: 667px) {
     .navbar-custom {
         width: 100%;
-        height: 30vh;
-        min-width: 0px;
+        height: 221.5px;
     }
 }
 
-.navbar-custom ul {
+.lista {
     list-style: none;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
 }
+
+@media screen and (max-width: 667px) {
+    .navbar-visible {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 667px) {
+    .lista {
+        display: none;
+    }
+}
+
 
 .navbar-custom ul li{
     cursor: pointer;
@@ -49,3 +65,40 @@
 .navlink p{
     margin: 0;
 }
+
+.responsive-button{
+    background: transparent;
+    border: none;
+}
+
+
+
+@media screen and (max-width: 667px) {
+    .responsive-button i{
+        color: white;
+        margin-left: 1rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+
+@media screen and (min-width: 667px) {
+    .responsive-button {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 667px) {
+    .navbar-visible {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
+
+
