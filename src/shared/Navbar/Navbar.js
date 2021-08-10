@@ -15,7 +15,6 @@ export const Navbar = () => {
 
   const handleNavbar = ()=>{
     setResponsive(!responsive)
-    console.log(responsive)
   }
 
   
