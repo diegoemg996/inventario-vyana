@@ -7,24 +7,24 @@ export const Navbar = () => {
 
   const history = useHistory();
 
-  const [visible, setVisible] = useState(false)
+  const [responsive, setResponsive] = useState(false)
 
   const handleRouting = (ruta)=>{
     history.push(`/${ruta}`);
   }
 
   const handleNavbar = ()=>{
-    setVisible(!visible)
-    console.log(visible)
+    setResponsive(!responsive)
+    console.log(responsive)
   }
 
   
     return (
-        <nav className="navbar-custom">
+        <nav className={responsive ? "navbar-responsive" : "navbar-custom"}>
           <button className="responsive-button" onClick={handleNavbar}>
             <i className="fas fa-bars fa-2x"></i>
           </button>
-          <ul className={visible ? 'navbar-visible' : 'lista'}>
+          <ul className={'lista'}>
             <li onClick={()=> handleRouting('')}>
               <NavLink exact className="navlink" to="/" activeClassName="selected">
                 <p>Home</p> 

@@ -8,9 +8,41 @@
 @media screen and (max-width: 667px) {
     .navbar-custom {
         width: 100%;
-        height: 221.5px;
+        height: 52px;
     }
 }
+
+@media screen and (max-width: 667px) {
+    .navbar-responsive {
+        width: 100%;
+        height: 220px;
+        background: #053e4c;
+    }
+
+    .navbar-responsive ul a{
+        text-decoration: none;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 667px) {
+    .navbar-responsive {
+        height: 100vh;
+        width: 15%;
+        min-width: 200px;
+        background: #053e4c;
+    }
+
+    .navbar-responsive ul a{
+        text-decoration: none;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+}
+
 
 .lista {
     list-style: none;
@@ -18,22 +50,6 @@
     flex-direction: column;
     margin: 0;
     padding: 0;
-}
-
-@media screen and (max-width: 667px) {
-    .navbar-visible {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-    }
-}
-
-@media screen and (max-width: 667px) {
-    .lista {
-        display: none;
-    }
 }
 
 
@@ -71,8 +87,6 @@
     border: none;
 }
 
-
-
 @media screen and (max-width: 667px) {
     .responsive-button i{
         color: white;
@@ -86,16 +100,6 @@
 @media screen and (min-width: 667px) {
     .responsive-button {
         display: none;
-    }
-}
-
-@media screen and (min-width: 667px) {
-    .navbar-visible {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
     }
 }
 
